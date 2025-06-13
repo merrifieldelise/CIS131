@@ -6,15 +6,22 @@
 #initialize variables
 miles_total = 0
 gallons_total = 0
-gallons = 0
-miles = 0
 
 
-while gallons != -1:
+while True:
     #input statements
     gallons = float(input("Enter the gallons of gas used (-1 to end): "))
-    miles = float(input("Enter the miles driven: "))
+    if gallons == -1:
+        mpg_total = miles_total / gallons_total
+        print(f"The overall average miles/gallon was {mpg_total}")
+        break
 
+    miles = float(input("Enter the miles driven: "))
+    #calculate and print trip mgp
+    trip_mpg = miles/gallons
+    print(f"The miles/gallons for this tank was {trip_mpg}")
+    #create totals for next calculation
     miles_total += miles
     gallons_total += gallons
+
 
