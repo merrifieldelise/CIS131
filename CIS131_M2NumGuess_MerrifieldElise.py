@@ -1,6 +1,7 @@
 #Author: Elise Merrifield
 #CIS 131
 #M2 Lab: Guess the Number
+#game trying to guess randomly generated number
 
 #import random
 import random
