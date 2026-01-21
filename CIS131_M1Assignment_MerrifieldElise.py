@@ -1,8 +1,11 @@
-'''Script: Investment return assigment
+'''
+Script: Investment return assigment
 Action: calculate total value after X years
-Author: Elise Merrifield'''
+Author: Elise Merrifield
+Date: 01/21/2026
+'''
 
-
+#uses given function to calculate investments value after 10 20 or 30 years
 a = 1000*(1+0.07)**10
 print(a)
 
