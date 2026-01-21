@@ -1,6 +1,7 @@
-#Author: Elise Merrifield
-#CIS 131
-#Investment return assigment
+'''Script: Investment return assigment
+Action: calculate total value after X years
+Author: Elise Merrifield'''
+
 
 a = 1000*(1+0.07)**10
 print(a)
