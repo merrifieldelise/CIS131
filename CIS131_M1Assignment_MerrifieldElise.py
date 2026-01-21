@@ -1,5 +1,5 @@
 '''
-Script: Investment return assigment
+Script: Investment return assignment
 Action: calculate total value after X years
 Author: Elise Merrifield
 Date: 01/21/2026
