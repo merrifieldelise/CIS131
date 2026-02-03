@@ -1,11 +1,15 @@
-#Author: Elise Merrifield
-#CIS 131
-#M2 Lab: Guess the Number
-#game trying to guess randomly generated number
+'''
+Script: Guess the Number
+Action: game trying to guess randomly generated number
+Author: Elise Merrifield
+Date: 02/01/2026
+'''
+
 
 #import random
 import random
 
+#set go again to true to allow loop
 go_again = True
 
 #set up while loop
@@ -32,7 +36,7 @@ while go_again:
             print(f"The correct number was {winner}")
 
 
-
+# ask for user input and reset loop
     user_input_loop = input("Would you like to go again?(enter Y or N): ")
     if user_input_loop.lower() != "y":
         go_again = False
