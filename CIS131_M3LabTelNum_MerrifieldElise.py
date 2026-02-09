@@ -1,7 +1,9 @@
-#Author: Elise Merrifield
-#CIS 131
-#M3 lab Telephone Number Word Generator
-#Take user phone Number and use it to generate letter combinations possible
+'''
+Script: Telephone Number Word Generator
+Action: Take user phone Number and use it to generate letter combinations possible
+Author: Elise Merrifield
+Date: 02/09/2026
+'''
 
 #inport modules
 from itertools import product
