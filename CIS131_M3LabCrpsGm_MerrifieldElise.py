@@ -26,7 +26,7 @@ win_dict = {}
 loss_dict = {}
 
 #create loop to run game 1,000,000x
-while counter < 100:
+while counter < 1000000:
     # initiate rolls counter and my_point here so it updates each play
     rolls = 1 #starting at one to account for first roll
     my_point = 0
@@ -64,12 +64,33 @@ while counter < 100:
 
     counter += 1 #add to game counter
 
-#create sorted list of keys without overwriting dictionaries
-all_keys = sorted(set(win_dict) | set(loss_dict))
+#calculate totals
+total_wins = sum(win_dict.values())
+total_losses = sum(loss_dict.values())
+total_games = total_wins + total_losses
 
-#print dictionaries for wins and losses
-print("# of Rolls | Wins\t# of Rolls | Losses")
-print("_________________\t___________________")
-#for loop to print the sorted results
-for k in all_keys:
-    print(f"{k:9} | {win_dict.get(k,0):4}\t{k:9} | {loss_dict.get(k,0):4}")
+#overall percentages
+pct_wins = (total_wins/total_games)*100
+pct_losses = (total_losses/total_games)*100
+
+#prepare per-roll stats
+all_rolls = sorted(set(win_dict) | set(loss_dict))
+per_roll_counts = {r: win_dict.get(r, 0) + loss_dict.get(r, 0) for r in all_rolls}
+
+#print summary
+print(f"Percentage of wins: {pct_wins}%")
+print(f"Percentage of losses: {pct_losses}%\n")
+
+#header for per-roll table
+print("\t% Resolved\t\t\t\tCumulative %")
+print(" Rolls on this roll of games resolved")
+print("----------------------------------------")
+
+#initialise variable for table calculations
+cumulative = 0.0
+#print table
+for r in all_rolls:
+    count = per_roll_counts[r]
+    pct_each = (count / total_games) * 100
+    cumulative += pct_each
+    print(f"{r:<6} {pct_each:8.2f}%{12*' '}{cumulative:8.2f}%")
