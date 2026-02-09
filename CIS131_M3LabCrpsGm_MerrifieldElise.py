@@ -10,8 +10,8 @@ import random
 
 #create functions for rolling dice and displaying dice rolls
 def roll_dice():
-    die1 = random.randrange(1,7)
-    die2 = random.randrange(1,7)
+    die1 = random.randrange(1,6)
+    die2 = random.randrange(1,6)
     return die1, die2
 
 def display_dice(dice):
@@ -37,8 +37,6 @@ while counter < 100:
     #determin game status as well as "point" value
     sum_of_dice = sum(die_values)
 
-
-
     if sum_of_dice in (7, 11):  #win
         game_status = 'WON'
     elif sum_of_dice in (2, 3, 12): #loss
@@ -46,7 +44,6 @@ while counter < 100:
     else: #creats point value and continues play
         game_status = 'CONTINUE'
         my_point = sum_of_dice
-
 
     #continue game until win or loss
     while game_status == 'CONTINUE':
@@ -61,22 +58,18 @@ while counter < 100:
 
     #update dictionaries
     if game_status == 'WON':
-        if str(rolls) in win_dict:
-            win_dict[str(rolls)] += 1
-        else:
-            win_dict[str(rolls)] = 1
+        win_dict[rolls] = win_dict.get(rolls, 0) + 1
     else:
-        if str(rolls) in loss_dict:
-            loss_dict[str(rolls)] += 1
-        else:
-            loss_dict[str(rolls)] = 1
+        loss_dict[rolls] = loss_dict.get(rolls, 0) + 1
 
     counter += 1 #add to game counter
 
+#create sorted list of keys without overwriting dictionaries
+all_keys = sorted(set(win_dict) | set(loss_dict))
+
 #print dictionaries for wins and losses
-win_dict = sorted(win_dict.keys())
-loss_dict = sorted(loss_dict.keys())
 print("# of Rolls | Wins\t# of Rolls | Losses")
 print("_________________\t___________________")
-for rolls in win_dict, loss_dict:
-    print(f"{rolls:5} | {win_dict[rolls]:5}\t{rolls:5} | {loss_dict[rolls]:5}")
+#for loop to print the sorted results
+for k in all_keys:
+    print(f"{k:9} | {win_dict.get(k,0):4}\t{k:9} | {loss_dict.get(k,0):4}")
