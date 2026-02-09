@@ -1,14 +1,14 @@
-#Author: Elise Merrifield
-#CIS 131
-#M3 Lab Analyzing a game of craps
-#take the outlined program in figure 4.2 of chapter 5 in the intro to python textbook and increase play count
-#as well as storing wins and losses in a dictionary for further analysis
+'''
+Script: Analyzing a game of craps
+Action: play 1,000,000 games of craps and store results in a win/loss dictionary
+Author: Elise Merrifield
+Date: 02/09/2026
+'''
 
-
-#simulating the game of craps
-
+#import necessary modules
 import random
 
+#create functions for rolling dice and displaying dice rolls
 def roll_dice():
     die1 = random.randrange(1,7)
     die2 = random.randrange(1,7)
