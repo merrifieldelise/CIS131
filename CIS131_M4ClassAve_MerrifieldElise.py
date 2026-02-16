@@ -1,30 +1,27 @@
 '''
 Script: Writing Grades to A Plain Text File
-Action: Take any number of grade inputs and calculate class average, save to text file
+Action: Write a program that enables the user to enter any number of grades
+and stores them in a grades.txt plain text file
 Author: Elise Merrifield
 Date: 02/15/2026
 '''
 
-
-#class average program from fig 3.2
 #initialization phase
-total = 0 #grade sums
 grade_counter = 0 #number of grades entered
 
-#processing phase
-grade = int(input('Enter grade, -1 to end: '))
-while grade != -1:
-    total += grade
-    grade_counter += 1
+#create and open txt file
+with open('grades.txt', mode='w') as grades:
     grade = int(input('Enter grade, -1 to end: '))
 
-#termination phase
-if grade_counter != 0:
-    average = total / grade_counter
-    print(f'Class average is {average:.2f}')
-    # Write program to a text file
-    with open('ClassGradeAve.txt', mode='w') as ClassGradeAve:
-        ClassGradeAve.write(str(average))
-else:
-    print('No grades were entered')
+#processing phase
 
+    while grade != -1:
+        grade_counter += 1 #add to grade counter for each input
+        grade = int(input('Enter grade, -1 to end: '))#take input from user and make sentinel value testable
+        grades.write(f'{str(grade)} \n')#write input to text file
+
+# print to let user know program has terminated successfully
+if grade_counter != 0:
+    print(f'{grade_counter} grades were entered and saved!')
+else:
+    print('No grades were entered.')
