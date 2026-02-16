@@ -3,10 +3,9 @@ Script: Telephone Number Word Generator
 Action: Take user phone Number and use it to generate letter combinations possible
 Author: Elise Merrifield
 Date: 02/09/2026
+Edits: 02/15/2026
 '''
 
-#inport modules
-from itertools import product
 
 #create a dictionary to store the number as a key and associate it with its list of letters
 letters_numbers = {
@@ -20,14 +19,27 @@ letters_numbers = {
     "9":['W', 'X', 'Y']
 }
 #prompt user input
-phone_number = input("Enter your phone number in this format(***-****): ")
+
+phone_number = input("Enter your phone number in this format(***-****), avoid using 1's and 0's: ")
 #clean input if needed
 phone_number = phone_number.replace("-", '')
 
-#create a list of possible combinations from the user input
-letters_list = [letters_numbers[digit] for digit in phone_number if digit in letters_numbers]
+# Extract each digit's letter group
+g0 = letters_numbers[phone_number[0]]
+g1 = letters_numbers[phone_number[1]]
+g2 = letters_numbers[phone_number[2]]
+g3 = letters_numbers[phone_number[3]]
+g4 = letters_numbers[phone_number[4]]
+g5 = letters_numbers[phone_number[5]]
+g6 = letters_numbers[phone_number[6]]
 
-#print results
-print("Here are all the possible combinations for your number: ")
-for combo in product(*letters_list):
-    print(''.join(combo))
+print("Here are all the possible combinations:")
+
+for a in g0:
+    for b in g1:
+        for c in g2:
+            for d in g3:
+                for e in g4:
+                    for f in g5:
+                        for g in g6:
+                            print(a + b + c + d + e + f + g)
