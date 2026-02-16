@@ -19,7 +19,7 @@ letters_numbers = {
     "9":['W', 'X', 'Y']
 }
 #prompt user input
-
+outputs = []
 phone_number = input("Enter your phone number in this format(***-****), avoid using 1's and 0's: ")
 #clean input if needed
 phone_number = phone_number.replace("-", '')
@@ -42,4 +42,8 @@ for a in g0:
                 for e in g4:
                     for f in g5:
                         for g in g6:
-                            print(a + b + c + d + e + f + g)
+                           outputs.append(a + b + c + d + e + f + g)
+                           with open('NumberToLetters.txt', mode='w') as NumberToLetters:
+                               for combo in outputs:
+                                   NumberToLetters.write(combo + '\n')
+                                   print(a + b + c + d + e + f + g)
