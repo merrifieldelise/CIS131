@@ -19,6 +19,13 @@ class Account:
             raise ValueError('Initial balance must be >= to 0.00.')
         self._name = name
         self._balance = balance
+    #make name and deposit read only using @property
+    @property
+    def name(self):
+        return self._name
+    @property
+    def balance(self):
+        return self._balance
 
     def deposit(self, amount):
         '''Deposit money into account.'''
@@ -27,15 +34,7 @@ class Account:
             raise ValueError('amount must be positive')
         self._balance += amount
 
-
 #test class account for read only
 account1 = Account('John Green', Decimal('50.00'))
-print(account1._balance)
-account1.balance = Decimal('25.00')
-print(account1._balance)
-print(account1._name)
-account1.name = "Pam"
-print(account1._name)
 
-account1.deposit(Decimal('30'))
-print(account1._balance)
+account1.balance = Decimal('25.00')
